@@ -11,6 +11,10 @@
   --font-header-clr: hsl(217, 19%, 35%);
   --font-description-sz: 14px;
   --font-description-clr: hsl(214, 17%, 51%);
+
+  --share-btn: rgb(240, 240, 240);
+  --share-btn-hover: hsl(214, 25%, 82%);
+  --share-btn-active: hsl(212, 23%, 69%);
 }
 
 *, *::after, *::before {
@@ -45,8 +49,7 @@ main {
 .card {
   display: flex;
   inset: 0;
-  overflow: hidden;
-  background: var(--background-main);
+  background: var(--background-card);
   box-shadow: 0.5rem 0.5rem 1rem 0 #0002;
   border-radius: 0.5rem;
   position: relative;
@@ -69,6 +72,7 @@ main {
   display: flex;
   flex-direction: column;
   padding: 2rem;
+  width: 100%;
 }
 
 .card-content > .card-title {
@@ -85,6 +89,8 @@ main {
 .card-footer {
   position: relative;
   margin-top: auto;
+  display: flex;
+  width: 100%;
 }
 
 .card-profile {
@@ -118,6 +124,41 @@ main {
   color: var(--font-description-clr);
 }
 
+.card-share {
+  margin-left: auto;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-btn {
+  padding: 0.9rem;
+  height: 75%;
+  aspect-ratio: 1;
+  background: var(--share-btn);
+  border-radius: 50%;
+  border: none;
+  transition: background 0.2s ease-in-out;
+}
+
+.share-btn:hover {
+  background: var(--share-btn-hover);
+}
+
+.active-btn {
+  background: var(--share-btn-active);
+}
+
+.active-btn > img {
+  filter: brightness(0) invert(1);
+  transition: all 0.2s ease-in-out;
+}
+
+.share-btn > img {
+  height: 100%;
+}
+
 @media (max-width: 768px) {
   .wrapper {
     max-width: 768px;
@@ -127,11 +168,19 @@ main {
     max-width: 23rem;
     flex-direction: column;
   }
+
+  .card-image > img {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
 }
 
 @media (min-width: 769px) {
   .wrapper {
     aspect-ratio: 5/2;
+  }
+
+  .card-image > img {
+    border-radius: 0.5rem 0 0 0.5rem;
   }
 }
 
