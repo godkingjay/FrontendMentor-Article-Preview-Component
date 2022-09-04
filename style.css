@@ -3,15 +3,12 @@
 :root {
   --background-main: hsl(210, 46%, 95%);
   --background-card: hsl(0, 0%, 100%);
-
   --font1: Manrope;
-
   --font-header-sz: 20px;
   --font-name-sz: 16px;
   --font-header-clr: hsl(217, 19%, 35%);
   --font-description-sz: 14px;
   --font-description-clr: hsl(214, 17%, 51%);
-
   --share-btn: rgb(240, 240, 240);
   --share-btn-hover: hsl(214, 25%, 82%);
   --share-btn-active: hsl(212, 23%, 69%);
@@ -22,7 +19,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* outline: 1px solid black; */
 }
 
 body {
