@@ -15,6 +15,7 @@
   --share-btn: rgb(240, 240, 240);
   --share-btn-hover: hsl(214, 25%, 82%);
   --share-btn-active: hsl(212, 23%, 69%);
+  --share-pop-up: hsl(217, 19%, 35%);
 }
 
 *, *::after, *::before {
@@ -73,6 +74,7 @@ main {
   flex-direction: column;
   padding: 2rem;
   width: 100%;
+  position: relative;
 }
 
 .card-content > .card-title {
@@ -87,8 +89,6 @@ main {
 }
 
 .card-footer {
-  position: relative;
-  margin-top: auto;
   display: flex;
   width: 100%;
 }
@@ -125,11 +125,8 @@ main {
 }
 
 .card-share {
-  margin-left: auto;
-  aspect-ratio: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .share-btn {
@@ -159,9 +156,36 @@ main {
   height: 100%;
 }
 
-@media (max-width: 768px) {
+.share-pop-up {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.share-pop-up > p {
+  font-size: var(--font-description-sz);
+  letter-spacing: 0.5rem;
+  color: white;
+}
+
+.share-pop-up > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.5rem;
+  aspect-ratio: 1;
+}
+
+.share-pop-up > a > img {
+  cursor: pointer;
+  height: 100%;
+}
+
+@media (max-width: 812px) {
   .wrapper {
     max-width: 768px;
+    margin-block: 3rem;
   }
 
   .card {
@@ -169,18 +193,98 @@ main {
     flex-direction: column;
   }
 
+  .card-content {
+    margin-bottom: 4.5rem;
+  }
+
   .card-image > img {
     border-radius: 0.5rem 0.5rem 0 0;
   }
+
+  .card-footer {
+    position: absolute;
+    bottom: -4.5rem;
+    left: 0;
+    padding: 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    overflow: hidden;
+  }
+
+  .share-btn {
+    z-index: 2;
+    position: absolute;
+    height: 50%;
+    right: 0;
+    margin: 1rem;
+    margin-right: 2rem;
+  }
+
+  .share-pop-up {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    background: var(--share-pop-up);
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
+    transform: translateY(100%);
+  }
+
+  .share-pop-up > p {
+    font-size: 1.25rem;
+  }
+
+  .share-pop-up-show {
+    transform: translateY(0);
+  }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 813px) {
   .wrapper {
-    aspect-ratio: 5/2;
+    margin-inline: 3rem;
   }
 
   .card-image > img {
     border-radius: 0.5rem 0 0 0.5rem;
+  }
+
+  .card-footer {
+    position: relative;
+    margin-top: auto;
+  }
+
+  .card-share {
+    margin-left: auto;
+    aspect-ratio: 1;
+    justify-content: center;
+  }
+
+  .share-pop-up {
+    position: absolute;
+    justify-content: center;
+    margin-bottom: 10rem;
+    padding: 1rem;
+    padding-inline: 2.25rem;
+    background: var(--share-pop-up);
+    border-radius: 0.5rem;
+    transform-origin: bottom;
+    opacity: 0;
+  }
+
+  .share-pop-up:before {
+    content: "";
+    height: 0;
+    width: 0;
+    bottom: -1rem;
+    border-right: 1rem solid transparent;
+    border-left: 1rem solid transparent;
+    border-top: 1rem solid var(--share-pop-up);
+    position: absolute;
+    background: white;
+  }
+
+  .share-pop-up-show {
+    opacity: 1;
   }
 }
 
