@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: ---> [LINK]()
+- Solution URL: ---> [LINK](https://www.frontendmentor.io/solutions/article-preview-component-responsive-html-css-js-jUnmgjpHa0)
 - Live Site URL: ---> [LINK](https://godkingjay.github.io/FrontendMentor-Article-Preview-Component/)
 
 ## My process
