@@ -30,7 +30,7 @@ Users should be able to:
 
 - Mobile
 
-![MOBILE](./screenshot-mobile.jpg)
+![image](./screenshot-mobile.jpg)
 
 ### Links
 
